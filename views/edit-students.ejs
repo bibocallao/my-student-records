@@ -1,0 +1,25 @@
+<%- include('partials/header', { title: 'Edit Students' }) %>
+
+<h1>Edit Students</h1>
+<p>Choose a student to edit.</p>
+
+<% if (students.length === 0) { %>
+  <p>No students yet. <a href="/students/new">Add one.</a></p>
+<% } else { %>
+  <table border="1" cellpadding="6">
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Action</th>
+    </tr>
+    <% students.forEach(function (s) { %>
+      <tr>
+        <td><%= s.first_name %></td>
+        <td><%= s.last_name %></td>
+        <td><a href="/students/<%= s.id %>/edit">Edit</a></td>
+      </tr>
+    <% }) %>
+  </table>
+<% } %>
+
+<%- include('partials/footer') %>

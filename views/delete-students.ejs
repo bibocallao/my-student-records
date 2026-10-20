@@ -1,0 +1,30 @@
+<%- include('partials/header', { title: 'Delete Students' }) %>
+
+<h1>Delete Students</h1>
+<p>Click Delete to remove a student. This cannot be undone.</p>
+
+<% if (students.length === 0) { %>
+  <p>No students to delete. <a href="/students/new">Add one.</a></p>
+<% } else { %>
+  <table border="1" cellpadding="6">
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Action</th>
+    </tr>
+    <% students.forEach(function (s) { %>
+      <tr>
+        <td><%= s.first_name %></td>
+        <td><%= s.last_name %></td>
+        <td>
+          <form method="post" action="/students/<%= s.id %>/delete"
+                onsubmit="return confirm('Delete this student?');">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+<% } %>
+
+<%- include('partials/footer') %>

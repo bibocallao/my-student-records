@@ -1,0 +1,20 @@
+<%- include('partials/header', { title: 'Add Student' }) %>
+
+<h1>Add Student</h1>
+
+<form method="post" action="/students">
+  <p>
+    <label>First name<br>
+      <input type="text" name="first_name" required>
+    </label>
+  </p>
+  <p>
+    <label>Last name<br>
+      <input type="text" name="last_name" required>
+    </label>
+  </p>
+  <button type="submit">Save Student</button>
+  <a href="/students">Cancel</a>
+</form>
+
+<%- include('partials/footer') %>

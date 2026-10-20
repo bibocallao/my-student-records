@@ -1,0 +1,18 @@
+<%- include('partials/header', { title: 'Students' }) %>
+
+<h1>Students</h1>
+
+<table border="1" cellpadding="6">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+  </tr>
+  <% students.forEach(function (s) { %>
+    <tr>
+      <td><%= s.first_name %></td>
+      <td><%= s.last_name %></td>
+    </tr>
+  <% }) %>
+</table>
+
+<%- include('partials/footer') %>
